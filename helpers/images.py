@@ -44,7 +44,7 @@ def draw_imagẹ̣̣̣(folder ,dir, fileNameImput, text, outputDir):
             pos = (w/2, 20)
         elif (position == 'top-left'):
             pos = (10, 20)
-        I1.text(pos, text, font=fnt, fill=(255, 255, 255))
+        I1.text(pos, text, font=fnt, fill=(255, 255, 255), anchor=None, spacing=font_size/2)
         
         # Display edited image
         outputFile = outputDir + "/" + str(fileNameImput) + "." + extension

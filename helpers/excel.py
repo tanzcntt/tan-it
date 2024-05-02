@@ -10,8 +10,8 @@ def read_excel_and_draw_image(excel_name):
     output_dir_elsx = ROOT_DIR + '/' + settings['directory']['output'] + '/' + excel_name
     for index, row in df.iterrows():
         output_dir_image = create_output_dir(row['Xa lan'], excel_name)
-        date_time = row['Thoi gian'].strftime("%d/%m/%Y, %H:%M:%S")
-        text = row['Vi tri'] + ' ' + date_time
+        date_time = row['Thoi gian'].strftime("%d/%m/%Y, %H:%M")
+        text = row['Vi tri'] + "\n" + date_time
         draw_imagẹ̣̣̣(excel_name, row['Xa lan'], row['STT'], text, output_dir_image)
         
             
