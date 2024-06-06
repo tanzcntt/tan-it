@@ -1,5 +1,8 @@
 # Importing the PIL library
+import glob
 import os, math
+from wand.image import Image as ImageConvert
+from pathlib import Path
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
@@ -50,6 +53,26 @@ def draw_imagẹ̣̣̣(folder ,dir, fileNameImput, text, outputDir):
         outputFile = outputDir + "/" + str(fileNameImput) + "." + extension
         print(outputFile)
         img.save(outputFile)
+    except Exception as e:
+        print(e)
+    finally:
+        pass
+    
+def convert_image(input_folder):
+    try:
+        scan_dir = ROOT_DIR + '/image-input/' +  input_folder + '/**/*.HEIC'
+        files = glob.glob(scan_dir,  
+                   recursive = True) 
+        for file in files:
+            p_file = Path(file)
+            output_file = str(p_file).replace('image-input','image-output').replace("HEIC","jpg")
+            output_dir = str(p_file.parent).replace('image-input','image-output')
+            os.makedirs(output_dir, exist_ok=True)
+            img=ImageConvert(filename=file)
+            img.format='jpg'
+            img.save(filename=output_file)
+            img.close()
+            print(p_file) 
     except Exception as e:
         print(e)
     finally:
