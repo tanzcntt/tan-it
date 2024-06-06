@@ -14,9 +14,3 @@ args = parser.parse_args()
 if args.input:
     print("Displaying input as: % s" % args.input)
     read_excel_and_draw_image(args.input)
-    
-
-
-
-
-

@@ -178,3 +178,5 @@ pyrightconfig.json
 output/*
 helpers/__pycache__/*
 
+image-input/*
+image-output/*
